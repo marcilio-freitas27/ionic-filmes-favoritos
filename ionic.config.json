@@ -1,0 +1,7 @@
+{
+  "name": "ionic-filmes-favoritos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
