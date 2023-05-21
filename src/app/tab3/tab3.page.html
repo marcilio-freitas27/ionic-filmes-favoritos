@@ -1,17 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
+    <ion-title class="ion-text-center">
+      Favoritos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div [hidden]="favoritos.length === 0" *ngFor="let favorito of favoritos">
+    <ion-card >
+      <ion-card-header>
+        <img [src]="favorito.Poster" />
+        <ion-card-title>{{favorito.Title}}</ion-card-title>
+        <ion-card-subtitle>{{favorito.Type}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        {{favorito.Year}}
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

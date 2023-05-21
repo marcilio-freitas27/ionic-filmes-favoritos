@@ -1,17 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
+    <ion-title class="ion-text-center">
+      filmes por título exato
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Buscar filmeme por título exato</ion-label>
+      <ion-input #filmes (change)="obterFilmeExato(filmes)" type="text" placeholder="ex: transformers"></ion-input>
+    </ion-item>
+  </ion-list>
+  <br>
+  <div [hidden]="filme.Title === undefined">
+    <ion-card>
+      <ion-card-header>
+        <img [src]="filme.Poster" />
+        <ion-card-title>{{filme.Title}}</ion-card-title>
+        <ion-card-subtitle>{{filme.Type}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        {{filme.Year}}
+      </ion-card-content>
+      <ion-item>
+        <ion-button (click)="favoritar(filme)">Favoritar</ion-button>
+      </ion-item>
+    </ion-card>
+  </div>
 </ion-content>
