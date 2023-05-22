@@ -10,7 +10,7 @@ export class FilmeService {
   url: string;
   apikey: string;
   favoritos: any[]
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.apikey = "1c5281b2"
     this.url = "https://www.omdbapi.com/?";
     this.favoritos = []
@@ -28,7 +28,14 @@ export class FilmeService {
     return this.favoritos
   }
 
+  verificarDuplicidade(filme: Filme): boolean{
+    if (this.favoritos.find((element) => element === filme)) {
+      return true;
+    }
+    return false;
+   }
+
   setFavoritos(filme: any){
-    this.favoritos.push(filme);
+    !this.verificarDuplicidade(filme) ? this.favoritos.push(filme) : null;
   }
 }

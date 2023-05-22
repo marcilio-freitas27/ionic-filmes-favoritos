@@ -9,7 +9,11 @@ import { FilmeService } from '../service/filme.service';
 export class Tab3Page {
   favoritos: any[]
   constructor(private filmeService: FilmeService) {
-    this.favoritos = this.filmeService.obterFavoritos();
+    this.favoritos = [];
+    this.pegarFilmes()
   }
 
+  pegarFilmes(){
+    this.favoritos = this.filmeService.obterFavoritos();
+  }
 }
